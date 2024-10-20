@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h2>Register</h2>
+<form method="POST">
+    {% csrf_token %}
+    
+    <div>
+        <label for="{{ form.username.id_for_label }}">Username:</label>
+        {{ form.username }}
+        {% if form.username.errors %}
+            <div class="error">{{ form.username.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div>
+        <label for="{{ form.password1.id_for_label }}">Password:</label>
+        {{ form.password1 }}
+        {% if form.password1.errors %}
+            <div class="error">{{ form.password1.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div>
+        <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+        {{ form.password2 }}
+        {% if form.password2.errors %}
+            <div class="error">{{ form.password2.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div>
+        <label for="{{ form.mobile_no.id_for_label }}">Mobile Number:</label>
+        {{ form.mobile_no }}
+        {% if form.mobile_no.errors %}
+            <div class="error">{{ form.mobile_no.errors }}</div>
+        {% endif %}
+        <p>Login Here!!<a href=' http://127.0.0.1:8000/api/login'>click here</a></p>
+    </div>
+
+    <button type="submit">Register</button>
+</form>
+{% endblock %}
